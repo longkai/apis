@@ -1,9 +1,9 @@
 FROM golang:1.19-bullseye as build
-ARG PROTOC_VERSION=21.4
+ARG PROTOC_VERSION=21.5
 WORKDIR /opt
 
-RUN go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.28.1; \
-    go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.2.0; \
+RUN go install google.golang.org/protobuf/cmd/protoc-gen-go@latest; \
+    go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest; \
     go install github.com/googleapis/api-linter/cmd/api-linter@latest
 
 RUN arch="$(uname -m)"; \
