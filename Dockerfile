@@ -1,5 +1,5 @@
-FROM golang:1.19-bullseye as build
-ARG PROTOC_VERSION=21.5
+FROM golang:latest as build
+ARG PROTOC_VERSION=23.4
 WORKDIR /opt
 
 RUN go install google.golang.org/protobuf/cmd/protoc-gen-go@latest; \
@@ -21,7 +21,7 @@ RUN arch="$(uname -m)"; \
     unzip protoc.zip
 
 
-FROM golang:1.19-bullseye
+FROM golang:latest
 
 RUN curl -sSLo /usr/local/bin/semver https://raw.githubusercontent.com/fsaintjacques/semver-tool/master/src/semver && chmod +x /usr/local/bin/semver
 
