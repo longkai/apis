@@ -1,5 +1,5 @@
 FROM golang:latest as build
-ARG PROTOC_VERSION=24.0
+ARG PROTOC_VERSION=25.4
 WORKDIR /opt
 
 RUN go install google.golang.org/protobuf/cmd/protoc-gen-go@latest; \
